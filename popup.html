@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <title> Đăng nhập để mua hàng trưc tuyến</title>
+    <link href="css/popup.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+</head>
+
+<body class="bg-dark">
+
+    <div class="ml-2">
+        <a id="go-to-home" href="#" target="_blank">Về trang mua hàng</a>
+    </div>
+    <div class="login-box d-none" id="login-form">
+        <div class="text-center">
+            <img src="icon64.png" class="avatar" alt="Avatar Image">
+        </div>
+        <h1>Đăng nhập</h1>
+        <form>
+            <label for="username">Tên đăng nhập</label>
+            <label>
+                <input type="text" placeholder="Enter Username" id="username">
+            </label>
+            <label for="password">Mật khẩu</label>
+            <label>
+                <input type="password" placeholder="Enter Password" id="password">
+            </label>
+            <input type="submit" value="Đăng nhập" id="login-button">
+            <!--        <a href="#">Đăng ký tài khoản mới</a><br>-->
+        </form>
+    </div>
+    <div class="d-none mt-4 mb-5 text-center" id="login-completed">
+        <div class="text-white p-2">Bạn đã đăng nhập thành công vào hệ thông vui lòng quay lại trang mua hàng</div>
+        <button class="p-2 pl-4 pr-4 mt-4 border-0" id="logout">Đăng xuất</button>
+    </div>
+
+    <script src="jquery-3.4.1.min.js"></script>
+    <script src="vendor/sweetalert2.min.js"></script>
+    <!--<script src="vendor/promise-polyfill.min.js"></script>-->
+    <script src="config.js"></script>
+    <script src="vendor/helper.js"></script>
+    <script src="popup.js"></script>
+</body>
+
+</html>
