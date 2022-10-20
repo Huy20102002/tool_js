@@ -28,7 +28,7 @@ function ready() {
             console.log(localStorage.getItem('uid'), localStorage.getItem('sid'));
         });
     }
-    if (!(match("taobao") || match("tmall") || match("1688"))) return;
+    if (!(match("taobao") || match("tmall"))) return;
     chrome.runtime.sendMessage({
         action: "getAppendage",
         callback: "afterGetAppendage"
@@ -38,8 +38,6 @@ function ready() {
         item_taobao_loaded();
     } else if (match("tmall")) {
         detail_tmall_loaded();
-    } else if (match("1688")) {
-        detail_1688_loaded();
     }
 }
 
@@ -62,26 +60,6 @@ function loadScript() {
 
 
     var map = {};
-    if (window.location.href.match(/detail.1688/)) {
-        const list = document.querySelectorAll(".list-leading > li > div > a");
-        if (list.length > 0) {
-            for (let i = 0; i < list.length; i++) {
-                list[i].addEventListener("click", function () {
-                    // console.log(list[i].parentElement.getAttribute("data-unit-config"));
-                    const data = tool.getData();
-                    if (data['properties'].length > 0) {
-                        map[data['properties_id']] = data;
-                    } else {
-                        try {
-                            delete map[data['properties_id']];
-                        } catch (e) {
-                        }
-                    }
-
-                });
-            }
-        }
-    }
 
     $(document).on("click", ".btn_add_to_cart", function () {
         if (match("taobao") || match("tmall")) {
@@ -93,17 +71,6 @@ function loadScript() {
                     customClass: 'notranslate'
                 });
                 return
-            }
-        }
-
-        if (match("1688")) {
-            try {
-                var all_input = document.getElementsByTagName('input');
-                for (let i = 0; i < all_input.length; i++) {
-                    all_input[i].blur();
-                }
-            } catch (e) {
-
             }
         }
 
@@ -140,19 +107,7 @@ function loadScript() {
                 return
             }
 
-            if (match("1688")) {
-                if (data['properties'].length > 0) {
-                    map[data['properties_id']] = data;
-                } else {
-                    try {
-                        delete map[data['properties_id']];
-                    } catch (e) {
-                        console.log(e);
-                    }
-                }
-            } else {
-                map[data['properties_id']] = data;
-            }
+            map[data['properties_id']] = data;
 
             let time = 0;
             order_count = Object.keys(map).length;

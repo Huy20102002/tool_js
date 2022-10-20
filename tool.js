@@ -33,7 +33,6 @@ dictionary["所在地区"] = "Khu vực";
 dictionary["货描"] = "Đánh gia của người mua";
 dictionary["发货"] = "Lô hàng";
 dictionary["回头率"] = "Doanh thu";
-dictionary["1688首页"] = "Trang chủ 1688";
 dictionary["我的阿里"] = "Dịch vụ";
 dictionary["进货单"] = "Đơn đặt hàng";
 dictionary["信誉"] = "Uy tín";
@@ -44,8 +43,6 @@ const tb = new taobao();
 const  tb_getter = new taobao_getter();
 const tm = new tmall();
 const tm_getter = new tmall_getter();
-// const _1688_ = new _1688();
-// const _1688_getter_ = new _1688_getter();
 
 function key_translate_lib(text) {
     if(dictionary[text] != null) return dictionary[text];
@@ -59,8 +56,6 @@ function match(web) {
             return url.match(/item.taobao/);
         case "tmall":
             return url.match(/detail.tmall/);
-        // case "1688":
-        //     return url.match(/detail.1688/);
     }
     return false;
 }
@@ -75,9 +70,6 @@ function getToolGetter() {
         return tm_getter;
     }
 
-    // if(url.match(/detail.1688/)) {
-    //     return _1688_getter_;
-    // }
     return null;
 }
 
@@ -91,9 +83,6 @@ function getTool() {
         return tm;
     }
 
-    // if(url.match(/detail.1688/)) {
-    //     return _1688_;
-    // }
     return null;
 }
 
