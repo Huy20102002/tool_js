@@ -1,6 +1,6 @@
 {
-  "name": "Công cụ nhập hàng Taobao-Order.com",
-  "version": "1.5",
+  "name": "Công cụ hỗ trợ đặt hàng TAOBAO, TMALL.",
+  "version": "1.0",
   "description": "Order Việt-Trung cung cấp công cụ hỗ trợ bạn đặt hàng trực tuyến tại các website thương mại điện tử như TMALL, Taobao.",
   "manifest_version": 3,
   "background": {
