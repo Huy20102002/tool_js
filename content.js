@@ -116,52 +116,54 @@ function loadScript() {
                 alert("xin vui lòng chọn sản phẩm cần mua");
                 return;
             }
-
-            Object.keys(map).forEach(function (key) {
-                setTimeout(function () {
-                    let xhr = new XMLHttpRequest();
-                    xhr.open("POST", host + "/api/create-cart", true);
-                    xhr.setRequestHeader('Content-Type', 'application/json');
-                    xhr.setRequestHeader('Accept', 'application/json');
-                    xhr.setRequestHeader('Authorization', 'Bearer ' + uid);
-                    xhr.send(JSON.stringify({
-                        data: JSON.stringify(map[key])
-                    }));
-                    // console.log(JSON.stringify(map[key]))
-                    xhr.onreadystatechange = function (oEvent) {
-                        if (xhr.readyState === 4) {
-                            if (xhr.status === 200) {
-                                Swal.fire({
-                                    icon: 'success',
-                                    title: 'Thông báo',
-                                    text: 'đặt hàng thành công',
-                                    footer: '<a href="https://datn.order-taobao.com/">Mở giỏ hàng</a>',
-                                    customClass: 'notranslate'
-                                });
-                            } else {
-                                try {
-                                    let res = JSON.parse(xhr.responseText);
-                                    let message = "Lỗi";
-                                    if (typeof res.message != "undefined") {
-                                        message = res.message;
+            
+            Object.keys(map).forEach(function (key, index) {
+                if (index == Object.keys(map).length-1) {
+                    setTimeout(function () {
+                        let xhr = new XMLHttpRequest();
+                        xhr.open("POST", host + "/api/create-cart", true);
+                        xhr.setRequestHeader('Content-Type', 'application/json');
+                        xhr.setRequestHeader('Accept', 'application/json');
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + uid);
+                        xhr.send(JSON.stringify({
+                            data: JSON.stringify(map[key])
+                        }));
+                        // console.log(JSON.stringify(map[key]))
+                        xhr.onreadystatechange = function (oEvent) {
+                            if (xhr.readyState === 4) {
+                                if (xhr.status === 200) {
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Thông báo',
+                                        text: 'đặt hàng thành công',
+                                        footer: '<a href="https://datn.order-taobao.com/">Mở giỏ hàng</a>',
+                                        customClass: 'notranslate'
+                                    });
+                                } else {
+                                    try {
+                                        let res = JSON.parse(xhr.responseText);
+                                        let message = "Lỗi";
+                                        if (typeof res.message != "undefined") {
+                                            message = res.message;
+                                        }
+                                        Swal.fire({
+                                            icon: "error",
+                                            title: 'Lỗi!',
+                                            text: message,
+                                        });
+                                    } catch (e) {
+                                        Swal.fire({
+                                            icon: "error",
+                                            title: 'Lỗi!',
+                                            text: "Lỗi...",
+                                        });
                                     }
-                                    Swal.fire({
-                                        icon: "error",
-                                        title: 'Lỗi!',
-                                        text: message,
-                                    });
-                                } catch (e) {
-                                    Swal.fire({
-                                        icon: "error",
-                                        title: 'Lỗi!',
-                                        text: "Lỗi...",
-                                    });
                                 }
                             }
-                        }
-                    };
-                }, time);
-                time += 100;
+                        };
+                    }, time);
+                    time += 100;
+                }
             });
         });
     });
