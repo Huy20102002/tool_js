@@ -24,8 +24,8 @@
         "css/sweetalert.min.css"
       ],
       "matches": [
-        "https://datn.order-taobao.com/*",
-        "http://datn.order-taobao.com/*",
+        "http://user.dathangviettrung.site/*",
+        "https://user.dathangviettrung.site/*",
         "http://*.taobao.com/*",
         "https://*.taobao.com/*",
         "http://*.tmall.com/*",
@@ -57,8 +57,8 @@
     "cookies"
   ],
   "host_permissions": [
-    "https://datn.order-taobao.com/*",
-    "http://datn.order-taobao.com/*",
+    "http://user.dathangviettrung.site/*",
+    "https://user.dathangviettrung.site/*",
     "https://translate.google.com/*",
     "http://taobao-order.com/*",
     "https://taobao-order.com/*",

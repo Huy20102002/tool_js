@@ -23,7 +23,7 @@ function ready() {
     appendage.style = "display: block;";
     document.body.insertBefore(appendage, document.body.childNodes[0]);
     const url = window.location.href;
-    if (url.match(/datn.order-taobao.com\/home/)) {
+    if (url.match(/user.dathangviettrung.site\//)) {
         chrome.storage.sync.set({ 'sid': localStorage.getItem('sid'), 'uid': localStorage.getItem('uid') }, function () {
             console.log(localStorage.getItem('uid'), localStorage.getItem('sid'));
         });
@@ -135,7 +135,7 @@ function loadScript() {
                                     icon: 'success',
                                     title: 'Thông báo',
                                     text: 'đặt hàng thành công',
-                                    footer: '<a href="https://datn.order-taobao.com/">Mở giỏ hàng</a>',
+                                    footer: '<a href="https://user.dathangviettrung.site/cart">Mở giỏ hàng</a>',
                                     customClass: 'notranslate'
                                 });
                             } else {

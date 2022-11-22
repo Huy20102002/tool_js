@@ -90,7 +90,7 @@ function getExchangeRate() {
     //         exchangeRate = parseFloat(xhr.responseText);
     //     };
     // }
-    return 3400
+    return 3500
 }
 
 function currency_format(k, _) {
